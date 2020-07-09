@@ -1,0 +1,250 @@
+#include <iostream>
+#include <time.h>
+#include"windows.h"
+
+using namespace std; 
+
+int rez();
+
+void main()
+{
+    setlocale (LC_ALL,"");
+    srand(time(NULL));
+    cout << "\n\n\n\n\n\n\n\n\n\n\n";
+    system("color 1"); cout << "\t\t\t\t\t================================" << endl;
+    Sleep(150);
+    system("color 2"); cout << "\t\t\t\t\t||         Game Cube          ||" << endl;
+    Sleep(150);
+    system("color 3"); cout << "\t\t\t\t\t||         by Chorrny         ||" << endl;
+    Sleep(150);
+    system("color 4"); cout << "\t\t\t\t\t================================" << endl;
+    Sleep(500);
+    system("cls");
+    
+    char throw_cube;
+    int total_i=0;
+    int total_computer=0;
+    
+    do
+    {
+            system("color 5"); cout << "=====================================" << endl;
+            system("color B"); cout << "To roll the dice press -> '$' <-" << endl;
+            system("color 5"); cout << "=====================================" << endl;
+            system("color A"); cout << "-->";
+            cin >> throw_cube;
+            
+    }
+    while (throw_cube!='$');
+ 
+    int result_me, result_computer;
+    do
+    {
+    result_me=rez();
+    cout <<"Your result: " <<result_me <<endl;
+    
+    cout <<"\nNow I ... (computer)" <<endl;
+    
+    result_computer=rez();
+    cout <<"\nMy result(computer): " <<result_computer <<endl;
+    }
+    while (result_me==result_computer);
+ 
+    if (result_me>result_computer)
+    {
+        cout <<"You throw first!!!" <<endl;
+        for (int i=1; i<=5; i++)
+        {
+            do
+            {
+            cout <<"Throw it! (press $)" <<endl;
+            cin >> throw_cube;
+            }
+            while (throw_cube!='$');
+            total_i += rez();
+            
+            total_computer+=rez();
+            
+        }
+        cout << "\nYour total score (sum of points for 5 shots): " <<total_i <<endl;
+        cout << "\n(computer) My overall result (sum of points for 5 shots): " <<total_computer <<endl;
+    }
+    else
+    {
+        cout <<"\nI'll roll the dice first(computer) " <<endl;
+        for (int i=1; i<=5; i++)
+        {
+            total_computer+=rez();
+            
+            do
+            {
+            cout <<"Throw it! (press $)" <<endl;
+            cin >> throw_cube;
+            }
+            while (throw_cube !='$');
+            total_i += rez();
+            
+        }
+        cout << "Your total score (sum of points for 5 shots): " <<total_i <<endl;
+        cout << "(computer) My overall result (sum of points for 5 shots): " <<total_computer <<endl;
+    }
+ 
+    if (total_i == total_computer)
+    {
+        system("color 8"); cout << "\n\n-==DRAW==-\n\n" << endl;
+    }
+    else
+    {
+        if (total_i>total_computer)
+        {
+            system("color 5"); cout << "###################################################################################" << endl;
+            system("color 5"); cout << "##                                                                               ##" << endl;
+            system("color 5"); cout << "##                                                                               ##" << endl;
+            system("color 5"); cout << "##                                                                               ##" << endl;
+            system("color 5"); cout << "##      ##    ##   ####   ##   ##      ##      ##       ##   ##    ###    ##     ##" << endl;
+            system("color 5"); cout << "##       ##  ##   #    #  ##   ##       ##    ####     ##    ##    ## #   ##     ##" << endl;
+            system("color 5"); cout << "##         ##     #    #  ##   ##        ##  ##  ##   ##     ##    ##  #  ##     ##" << endl;
+            system("color 5"); cout << "##         ##     #    #  ##   ##         ## ##   ## ##      ##    ##   # ##     ##" << endl;
+            system("color 5"); cout << "##         ##      ####    #####            ##      ##       ##    ##    ###     ##" << endl;
+            system("color 5"); cout << "##                                                                               ##" << endl;
+            system("color 5"); cout << "##                                                                               ##" << endl;
+            system("color 5"); cout << "##																	   		     ##" << endl;
+            system("color 5"); cout << "##                                                                               ##" << endl;
+            system("color 5"); cout << "###################################################################################" << endl;
+        }
+ 
+        if(total_i<total_computer)
+        {
+            system("color 3"); cout << "###################################################################################" << endl;
+            system("color 3"); cout << "##                                                                               ##" << endl;
+            system("color 3"); cout << "##                                                                               ##" << endl;
+            system("color 3"); cout << "##                                                                               ##" << endl;
+            system("color 3"); cout << "##           ##         #####    #####     #######    #######                    ##" << endl;
+            system("color 3"); cout << "##           ##        #     #  #     #    #          ##                         ##" << endl;
+            system("color 3"); cout << "##           ##        #     #  #     #     #         ##                         ##" << endl;
+            system("color 3"); cout << "##           ##        #     #  #     #       #       #######                    ##" << endl;
+            system("color 3"); cout << "##           ##        #     #  #     #        #      ##                         ##" << endl;
+            system("color 3"); cout << "##           #######    ####     #####     #######    #######                    ##" << endl;
+            system("color 3"); cout << "##                                                                               ##" << endl;
+            system("color 3"); cout << "##																	   		     ##" << endl;
+            system("color 3"); cout << "##                                                                               ##" << endl;
+            system("color 3"); cout << "###################################################################################" << endl;
+        }
+    }        
+}
+ 
+void bros(int cube)
+{
+    switch (cube)
+    {
+    case 1:
+        system("color 1"); cout << "\t\t\t\t\t\t***********************" << endl;
+        system("color 2"); cout << "\t\t\t\t\t\t*                     *" <<endl;
+        system("color 3"); cout << "\t\t\t\t\t\t*                     *" <<endl;
+        system("color 4"); cout << "\t\t\t\t\t\t*                     *" <<endl;
+        system("color 5"); cout << "\t\t\t\t\t\t*       ******        *" <<endl;
+        system("color 6"); cout << "\t\t\t\t\t\t*       ******        *" <<endl;
+        system("color 7"); cout << "\t\t\t\t\t\t*       ******        *" << endl;
+        system("color 8"); cout << "\t\t\t\t\t\t*                     *" << endl;
+        system("color 9"); cout << "\t\t\t\t\t\t*                     *" << endl;
+        system("color A"); cout << "\t\t\t\t\t\t*                     *" << endl;
+        system("color B"); cout << "\t\t\t\t\t\t***********************" << endl;
+        Sleep(1000);
+        system("cls");
+        break;
+    case 2:
+        system("color 1"); cout << "\t\t\t\t\t\t***********************" << endl;
+        system("color 2"); cout << "\t\t\t\t\t\t*                     *" << endl;
+        system("color 3"); cout << "\t\t\t\t\t\t*                     *" << endl;
+        system("color 4"); cout << "\t\t\t\t\t\t*    *****            *" << endl;
+        system("color 5"); cout << "\t\t\t\t\t\t*    *****            *" << endl;
+        system("color 6"); cout << "\t\t\t\t\t\t*    *****            *" << endl;
+        system("color 7"); cout << "\t\t\t\t\t\t*           *****     *" << endl;
+        system("color 8"); cout << "\t\t\t\t\t\t*           *****     *" << endl;
+        system("color 9"); cout << "\t\t\t\t\t\t*           *****     *" << endl;
+        system("color A"); cout << "\t\t\t\t\t\t*                     *" << endl;
+        system("color B"); cout << "\t\t\t\t\t\t***********************" << endl;
+        Sleep(1000);
+        system("cls");
+        break;
+    case 3:
+        system("color 1"); cout << "\t\t\t\t\t\t***********************" << endl;
+        system("color 2"); cout << "\t\t\t\t\t\t*   *****             *" << endl;
+        system("color 3"); cout << "\t\t\t\t\t\t*   *****             *" << endl;
+        system("color 4"); cout << "\t\t\t\t\t\t*   *****             *" << endl;
+        system("color 5"); cout << "\t\t\t\t\t\t*        *****        *" << endl;
+        system("color 6"); cout << "\t\t\t\t\t\t*        *****        *" << endl;
+        system("color 7"); cout << "\t\t\t\t\t\t*        *****        *" << endl;
+        system("color 8"); cout << "\t\t\t\t\t\t*             *****   *" << endl;
+        system("color 9"); cout << "\t\t\t\t\t\t*             *****   *" << endl;
+        system("color A"); cout << "\t\t\t\t\t\t*             *****   *" << endl;
+        system("color B"); cout << "\t\t\t\t\t\t***********************" << endl;
+        Sleep(1000);
+        system("cls");
+        break;
+    case 4:
+        system("color 1"); cout << "\t\t\t\t\t\t***********************" << endl;
+        system("color 2"); cout << "\t\t\t\t\t\t*                     *" << endl;
+        system("color 3"); cout << "\t\t\t\t\t\t*   ****      ****    *" << endl;
+        system("color 4"); cout << "\t\t\t\t\t\t*   ****      ****    *" << endl;
+        system("color 5"); cout << "\t\t\t\t\t\t*   ****      ****    *" << endl;
+        system("color 6"); cout << "\t\t\t\t\t\t*                     *" << endl;
+        system("color 7"); cout << "\t\t\t\t\t\t*   ****      ****    *" << endl;
+        system("color 8"); cout << "\t\t\t\t\t\t*   ****      ****    *" << endl;
+        system("color 9"); cout << "\t\t\t\t\t\t*   ****      ****    *" << endl;
+        system("color A"); cout << "\t\t\t\t\t\t*                     *" << endl;
+        system("color B"); cout << "\t\t\t\t\t\t***********************" << endl;
+        Sleep(1000);
+        system("cls");
+        break;
+    case 5:
+        system("color 1"); cout << "\t\t\t\t\t\t***********************" << endl;
+        system("color 2"); cout << "\t\t\t\t\t\t*                     *" << endl;
+        system("color 3"); cout << "\t\t\t\t\t\t*  *****       *****  *" << endl;
+        system("color 4"); cout << "\t\t\t\t\t\t*  *****       *****  *" << endl;
+        system("color 5"); cout << "\t\t\t\t\t\t*  *****       *****  *" << endl;
+        system("color 6"); cout << "\t\t\t\t\t\t*        *****        *" << endl;
+        system("color 7"); cout << "\t\t\t\t\t\t*        *****        *" << endl;
+        system("color 8"); cout << "\t\t\t\t\t\t*        *****        *" << endl;
+        system("color 9"); cout << "\t\t\t\t\t\t*  *****       *****  *" << endl;
+        system("color A"); cout << "\t\t\t\t\t\t*  *****       *****  *" << endl;
+        system("color B"); cout << "\t\t\t\t\t\t*  *****       *****  *" << endl;
+        system("color C"); cout << "\t\t\t\t\t\t*                     *" << endl;
+        system("color E"); cout << "\t\t\t\t\t\t***********************" << endl;
+        Sleep(1000);
+        system("cls");
+        break;
+    case 6:
+        system("color 1"); cout << "\t\t\t\t\t\t***********************" << endl;
+        system("color 2"); cout << "\t\t\t\t\t\t*                     *" << endl;
+        system("color 3"); cout << "\t\t\t\t\t\t*  *****      *****   *" << endl;
+        system("color 4"); cout << "\t\t\t\t\t\t*  *****      *****   *" << endl;
+        system("color 5"); cout << "\t\t\t\t\t\t*  *****      *****   *" << endl;
+        system("color 6"); cout << "\t\t\t\t\t\t*                     *" << endl;
+        system("color 7"); cout << "\t\t\t\t\t\t*  *****      *****   *" << endl;
+        system("color 8"); cout << "\t\t\t\t\t\t*  *****      *****   *" << endl;
+        system("color 9"); cout << "\t\t\t\t\t\t*  *****      *****   *" << endl;
+        system("color 1"); cout << "\t\t\t\t\t\t*                     *" << endl;
+        system("color 2"); cout << "\t\t\t\t\t\t*  *****      *****   *" << endl;
+        system("color 3"); cout << "\t\t\t\t\t\t*  *****      *****   *" << endl;
+        system("color 4"); cout << "\t\t\t\t\t\t*  *****      *****   *" << endl;
+        system("color 5"); cout << "\t\t\t\t\t\t*                     *" << endl;
+        system("color 7"); cout << "\t\t\t\t\t\t***********************" << endl;
+        Sleep(1000);
+        system("cls");
+        break;
+    }
+}
+int rez()
+{
+    int cube_1=rand()%5+1;
+    bros(cube_1);
+ 
+    int cube_2=rand()%5+1;
+    bros(cube_2);
+ 
+    int rezult;
+    rezult=cube_1+cube_2;
+    cout <<"Result: " <<rezult <<"\n\n";
+ 
+    return rezult;
+}
