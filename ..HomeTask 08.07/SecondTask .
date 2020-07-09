@@ -1,0 +1,41 @@
+#include <iostream>
+#include"windows.h"
+using namespace std;
+
+float size(int n, int k)
+{
+    for (int i = 0; i < n; i++)
+    {
+        for (int j = 0; j < k; j++)
+        {
+            if (i == 0 || i == n - 1 || j == 0 || j == k - 1)
+            {
+                cout << char(178); // чітерство в ASKII код
+            }
+            else
+            {
+                cout << char(250); 
+            }
+        }
+        cout << endl;
+    }
+    return 0;
+}
+
+int main()
+{
+    int height, width;
+    system("color 8"); cout << "enter height: ";
+    cin >> height;
+    system("color 9"); cout << "enter width: ";
+    cin >> width;
+    system("cls");
+    system("color 6");
+    size(height, width);
+    Sleep(400);
+    system("color C"); cout << "by Chorrny" << endl;
+    Sleep(400);
+    system("pause");
+
+    return 0;
+}
