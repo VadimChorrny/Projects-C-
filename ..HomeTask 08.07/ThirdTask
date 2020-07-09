@@ -1,0 +1,33 @@
+#include<iostream>
+
+using namespace std;
+
+//Написать функцію яка буде приймати масив, індекс та значення,
+//функція має вставити нове значення в масив по індексу та повернути масив у новому вигляді
+
+int arr[20];
+
+float new_Array() {
+	for (int i = 0; i < 20; i++) {
+		arr[i] = rand() % 100;
+		cout << " " << arr[i];
+	}
+
+	cout << endl;
+
+	int number;
+	int elements;
+	cin >> number;
+	cin >> elements;
+	arr[number] = elements;
+	for (int i = 0; i < 20; i++) {
+
+		cout << " " << arr[i];
+	}
+	return 0;
+
+
+}
+int main() {
+	new_Array();
+}
