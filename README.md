@@ -1,3 +1,3 @@
 # Projects-C++ #
 
-### Here is my house from the courses IT Step ###
+### Here is my homework from the courses IT Step ###
