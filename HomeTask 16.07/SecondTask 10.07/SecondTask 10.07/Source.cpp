@@ -8,24 +8,24 @@ using namespace std;
 template <typename T>
 T nabor(T arrays[], T size) {
 
-	int negative = 0;
+	int neg = 0;
 	int Zero = 0;
-	int positive = 0;
+	int pos = 0;
 
 	for (int i = 0; i < size; i++) {
 		if (arrays[i] < 0) {
-			negative++;
+			neg++;
 		}
 		else if (arrays[i] > 0) {
-			positive++;
+			pos++;
 		}
 		else {
 			Zero++;
 		}
 	}
 
-	cout << "positive elements ->  " << positive << "\n";
-	cout << "negative elements -> " << negative << "\n";
+	cout << "positive elements ->  " << pos << "\n";
+	cout << "negative elements -> " << neg << "\n";
 	cout << "elements equal zero -> " << Zero << "\n";
 
 	return 0;
