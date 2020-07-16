@@ -1,0 +1,9 @@
+﻿  Source.cpp
+C:\Users\vadim_oyanwuw\source\repos\SecondTask 10.07\SecondTask 10.07\Source.cpp(36,13): warning C4244: аргумент: преобразование "time_t" в "unsigned int", возможна потеря данных
+C:\Users\vadim_oyanwuw\source\repos\SecondTask 10.07\SecondTask 10.07\Source.cpp(36,12): warning C4244: аргумент: преобразование "time_t" в "unsigned int", возможна потеря данных
+C:\Users\vadim_oyanwuw\source\repos\SecondTask 10.07\SecondTask 10.07\Source.cpp(47): message : выполняется компиляция ссылки на экземпляр шаблон функции "Type random<int>(Type [],Type)"
+          with
+          [
+              Type=int
+          ]
+  SecondTask 10.07.vcxproj -> C:\Users\vadim_oyanwuw\source\repos\SecondTask 10.07\Debug\SecondTask 10.07.exe
