@@ -1,5 +1,6 @@
 #include<iostream>
 #include<string>
+#include<ctime>
 using namespace std;
 
 const int sizeGroup = 20;
