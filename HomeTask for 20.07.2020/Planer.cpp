@@ -56,13 +56,13 @@ float Prioritet() {
 	string str;
 	for (int j = 0; j < i; j++) {
 		if (priority[j] == "C") {
-			cout << task[j] << " (" << date[j] << ") " << "importent" << endl;
+			cout << task[j] << "[" << date[j] << "] " << "importent" << endl;
 		}
 		else if (priority[j] == "B") {
-			cout << task[j] << " (" << date[j] << ") " << "midle importent" << endl;
+			cout << task[j] << "[" << date[j] << "]" << "midle importent" << endl;
 		}
 		else if (priority[j] == "A") {
-			cout << task[j] << " (" << date[j] << ") " << "not a importent" << endl;
+			cout << task[j] << "[" << date[j] << "]" << "not a importent" << endl;
 		}
 
 
@@ -84,17 +84,17 @@ float hightDate() {
 			for (int g = 0; g < i; g++) {
 				if (date[j][2] != DateYear[g]) {
 					if (g == i - 1) {
-						string prio;
+						string priorit;
 						if (priority[j] == "C") {
-							prio = "importent";
+							priorit = "importent";
 						}
 						else if (priority[j] == "B") {
-							prio = "midle importent";
+							priorit = "midle importent";
 						}
 						else {
-							prio = "not a  importent";
+							priorit = "not a  importent";
 						}
-						cout << task[j] << " (" << date[j][j] << date[j][j + 1] << date[j][j + 2] << ") " << prio << endl;
+						cout << task[j] << "[" << date[j][j] << date[j][j + 1] << date[j][j + 2] << "]" << priorit << endl;
 					}
 
 				}
@@ -118,40 +118,36 @@ float hightDate() {
 						else {
 							prio = "not a  importent";
 						}
-						cout << task[j] << " (" << date[j][j] << date[j][j + 1] << date[j][j + 2] << ") " << prio << endl;
+						cout << task[j] << "[" << date[j][j] << date[j][j + 1] << date[j][j + 2] << "]" << prio << endl;
 					}
 
 				}
 			}
 		}
-
-
 	}
+
 	for (int j = 0; j < i; j++) {
 		if (date[j][0] > Days) {
-			for (int g = 0; g < i; g++) {
-				if (date[j][0] != DateDays[g]) {
-					if (g == i - 1) {
-						string prio;
+			for (int i = 0; i < i; i++) {
+				if (date[j][0] != DateDays[i]) { // i zamenit na g
+					if (i == i - 1) {
+						string prioritet;
 						if (priority[j] == "C") {
-							prio = "importent";
+							prioritet = "importent";
 						}
 						else if (priority[j] == "B") {
-							prio = "midle importent";
+							prioritet = "midle importent";
 						}
 						else {
-							prio = "not a  importent";
+							prioritet = "not a  importent";
 						}
-						cout << task[j] << " (" << date[j][j] << date[j][j + 1] << date[j][j + 2] << ") " << prio << endl;
+						cout << task[j] << "[" << date[j][j] << date[j][j + 1] << date[j][j + 2] << "]" << prioritet << endl;
 					}
 
 				}
 			}
 		}
-
-
 	}
-
 	return 0;
 }
 
@@ -162,7 +158,7 @@ float PrioritySecond() {
 			if (date[j] == 0) {
 				break;
 			}
-			cout << task[j] << " (" << date[j][j] << date[j][j + 1] << date[j][j + 2] << ") " << "importent" << endl;
+			cout << task[j] << " [" << date[j][j] << date[j][j + 1] << date[j][j + 2] << "]" << "importent" << endl;
 		}
 	}
 	for (int j = 0; j < i; j++) {
@@ -170,7 +166,7 @@ float PrioritySecond() {
 			if (date[j] == 0) {
 				break;
 			}
-			cout << task[j] << " (" << date[j][j] << date[j][j + 1] << date[j][j + 2] << ") " << "midle importent" << endl;
+			cout << task[j] << "[" << date[j][j] << date[j][j + 1] << date[j][j + 2] << "]" << "midle importent" << endl;
 		}
 	}
 	for (int j = 0; j < i; j++) {
@@ -178,7 +174,7 @@ float PrioritySecond() {
 			if (date[j] == 0) {
 				break;
 			}
-			cout << task[j] << " (" << date[j][j] << date[j][j + 1] << date[j][j + 2] << ") " << "not a importent" << endl;
+			cout << task[j] << "[" << date[j][j] << date[j][j + 1] << date[j][j + 2] << "]" << "not a importent" << endl;
 		}
 
 	}
