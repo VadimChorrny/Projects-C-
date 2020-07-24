@@ -20,7 +20,7 @@ void Random() {
 		A[i] = 1 + rand() % 90; // 10 and 11
 		cout << A[i] << " ";
 	}
-	delete[] A;                //  StackOverFlow
+	delete[] A;                // pointer
 	system("PAUSE");
 }
 
