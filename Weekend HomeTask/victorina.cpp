@@ -21,6 +21,7 @@
 //
 //
 //Програма маэ бути реалызована до 100 рядочків
+
 #include<iostream>
 #include<string>
 #include"windows.h"
@@ -32,12 +33,11 @@ string victorine[100][10][6] = { { {"Ancient Greece. Myths","How did Hera thank 
 int win = 0, newVictorins = 0, choiseVictorins = 0, choiseVariants = 0, victorines = 0;
 
 void output() {
-
 	for (int i = 0; i < 10; i++) {
 		for (int j = 1; j < 5; j++) {
 			cout << victorine[choiseVictorins][i][j] << endl;
 		}
-		cout << "Enter number variants-> ";
+		cout << "Enter number variants ";
 		cin >> choiseVariants;
 		system("cls");
 		for (int j = 1; j < 5; j++) {
@@ -58,6 +58,7 @@ void output() {
 	}
 	cout << "Correct answers:" << win << " out of 10" << endl;
 }
+
 void addNewVictirines() {
 	victorines + 1;
 	cout << "Enter name your victorines" << endl;
@@ -82,27 +83,41 @@ void addNewVictirines() {
 		}
 	}
 }
-int main() {
-	int acshion = 0;
-	do {
+
+void PlannerMenu() {
+	int action = 0;
+
+	do
+	{
 		cout << "Add new victorines" << endl;
 		cout << "Print all victorines" << endl;
 		cout << "Exit" << endl;
-		cin >> acshion;
+		cout << "\n";
+		cout << "Select action: ";
+		cin >> action;
 		system("cls");
-		if (acshion == 1) {
+
+		switch (action)
+		{
+		case 1: {
 			addNewVictirines();
-		}
-		else if (acshion == 2) {
-			for (int i = 0; i < victorines + 1; i++) {
-				cout << victorine[i][0][0] << endl;
-				cout << "Choise victorines enter number ->";
-				cin >> choiseVictorins;
-				choiseVictorins--;
-				system("cls");
-				output();
-			}
+		}break;
+		case 2: {
+			output();
+			system("cls");
+		}break;
+		case 3: {
+			cout << "Goodbye" << endl;
+			system("cls");
+		}break;
+
 		}
 
-	} while (acshion != 3);
+	} while (action != 3);
+
+}
+
+int main() {
+
+	PlannerMenu();
 }
