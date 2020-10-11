@@ -1,100 +1,3 @@
-//#include<iostream>
-//#include<string>
-//#include<ctime>
-//
-//using namespace std;
-//struct Date
-//{
-//    int day;
-//    int month;
-//    int year;
-//    void Print()
-//    {
-//        cout << "Date of B:" << day << "." << month << "." << year << endl;
-//    }
-//};
-//struct Worker
-//{
-//    string FirstName;
-//    string LastName;
-//    double salary;
-//    int age;
-//    Date data;
-//
-//    void Print()
-//    {
-//
-//        cout << "First name:" << FirstName << endl;
-//        cout << "Last name:" << LastName << endl;
-//        cout << "Age:" << age << endl;
-//        cout << "Salary:" << salary << endl;
-//        data.Print();
-//
-//    }
-//    void SetSalary(double salary)
-//    {
-//
-//        this->salary = salary;
-//
-//    }
-//
-//    double GetSalary()
-//    {
-//
-//        return salary;
-//
-//    }
-//};
-//void CreatWorker(Worker* w)
-//{
-//
-//    int ageOld = 0;
-//    int sallaryBig = 0;
-//    int index = 0;
-//    string sn[6] = { "Bondarenko", "Melnik", "Sheva", "Tkachenko", "Koval", "Box" };
-//    string n[6] = { "Lexus", "Sanya", "Maks", "Borya", "Yurets", "Vladilen" };
-//    int c, b;
-//    c = rand() % 5;
-//    b = rand() % 5;
-//    w->FirstName = n[b];
-//    w->LastName = sn[c];
-//    w->age = 22 + rand() % 39;
-//    w->salary = rand() % 2000;
-//
-//}
-//
-//
-//
-//void main()
-//{
-//    srand(time(0));
-//    setlocale(LC_ALL, "ukr");
-//    int older = 0;
-//    int salary = 0;
-//    int* arr = new int[5];
-//    Worker* workers = new Worker[10];
-//    for (int i = 0; i < 10; i++)
-//    {
-//        CreatWorker(&workers[i]);
-//        workers[i].Print();
-//        cout << endl;
-//    }
-//    cout << "The old man: " << endl;
-//    
-//    for (int i = 0; i < 10; i++)
-//    {
-//        if (workers[i].age > workers[older].age)
-//        {
-//            older = i;
-//        }
-//        cout << endl;
-//    }
-//
-//    workers[older].Print();
-//
-//
-//}
-
 #include<iostream>
 #include<string>
 #include<ctime>
@@ -122,6 +25,7 @@ struct Worker
     int dateBirthday;
     Date data;
 
+
     void Print()
     {
         cout << "First name:" << FirstName << endl;
@@ -132,29 +36,109 @@ struct Worker
         data.Print();
 
     }
+};
 
-void Students() {
+void CreatWorker(Worker* w) {
     string sn[6] = { "Bondarenko", "Chirkp", "Sheva", "Tkachenko", "Koval" };
     string n[6] = { "Lexus", "Sanya", "Maks", "Boris", "Yurets" };
-    string sn[6] = { "Chorrny", "Melnik", "Sheva", "Tkachenko", "Koval" };
-    string n[6] = { "Vadim", "Petro", "Lil", "Oleg", "Vadim" };
-    string sn[6] = { "Bondarenko", "Myasov", "Pump", "Nechiporenko", "Kovalets" };
-    string n[6] = { "Oleksii", "Sanya", "Maks", "Borya", "Yurets" };
+    int name, lastName, birthday, avarage;
+    name = rand() % 5;
+    lastName = rand() % 5;
+    w->FirstName = n[name];
+    w->LastName = sn[lastName];
+    w->dateBirthday = 22 + rand() % 39;
+    w->average = rand() % 11;
+}
+
+void olderStudents() {
+    srand(time(NULL));
+    int older = 0;
+    Worker* workers = new Worker[10];
+    for (int i = 0; i < 10; i++)
+    {
+        CreatWorker(&workers[i]);
+        workers[i].Print();
+        cout << endl;
+    }
+    cout << endl;
+
+    cout << "The old man: " << endl;
+    for (int i = 0; i < 10; i++)
+    {
+        if (workers[i].dateBirthday > workers[older].dateBirthday)
+        {
+            older = i;
+        }
+        cout << endl;
+    }
+
+    workers[older].Print();
 }
 
 void main() {
+    
+    int action = 0;
 
+    do
+    {
+        cout << "==========================================================================" << endl;
+        cout << "1.Show all excellents: " << endl;
+        cout << "2.Show leader in whose class the best performance: " << endl;
+        cout << "3.Show all excellents: " << endl;
+        cout << "4.Print the name of the class with the worst performance:" << endl;
+        cout << "5.Show all siblings: " << endl;
+        cout << "6.Show children born in one day: " << endl;
+        cout << "7.Show the oldest student." << endl;
+        cout << "8.How many students have an average score greater than 8.5?" << endl;
+        cout << "9.In which class are the most privileged?" << endl;
+        cout << "10.Exit" << endl; 
+        cout << "==========================================================================" << endl;
+        cout << endl;
+        cout << "Enter action-->";
+        cin >> action;
+        switch (action)
+        {
+        case 1: {
 
-    cout << "1.Show all excellents: " << endl;
-    cout << "2.Show leader in whose class the best performance: " << endl;
-    cout << "3.Show all excellents: " << endl;
-    cout << "4.Print the name of the class with the worst performance:" << endl;
-    cout << "5.Show all siblings: " << endl;
-    cout << "6.Show children born in one day: " << endl;
-    cout << "7.Show the oldest student." << endl;
-    cout << "8.How many students have an average score greater than 8.5?" << endl;
-    cout << "9.In which class are the most privileged?" << endl;
+        }break;
+        case 2: {
+
+        }break;
+        case 3: {
+
+        }break;
+        case 4: {
+
+        }break;
+        case 5: {
+
+        }break;
+        case 6: {
+
+        }break;
+        case 7: {
+            olderStudents();
+        }break;
+        case 8: {
+
+        }break;
+        case 9: {
+
+        }break;
+        case 10: {
+
+        }break;
+
+        }
+
+       
+
+        
+
+    } while (action != 9);
+    
 
 
 
 }
+
