@@ -6,22 +6,30 @@ using namespace std;
 
 struct Date
 {
-    int day;
-    int month;
-    int year;
+    int day = rand() % 29;
+    int month = rand() % 12;
+    int year = (rand() % (2020 - 2003 + 1)) + 2003;
     void Print()
     {
-        cout << "Date of B:" << day << "." << month << "." << year << endl;
+        cout << "Date of Birthday:\t" << day << "." << month << "." << year << endl;
     }
+};
+
+struct Class
+{
+    string manager;
+
 };
 
 struct Worker
 {
     string FirstName;
     string LastName;
+    string manager;
     double average;
     double ball;
-    bool privileges;
+    bool benefits;
+    int age;
     int dateBirthday;
     Date data;
 
@@ -30,8 +38,11 @@ struct Worker
     {
         cout << "First name:" << FirstName << endl;
         cout << "Last name:" << LastName << endl;
-        cout << "Age:" << dateBirthday << endl;
+        cout << "Age:" << age << endl;
         cout << "Average:" << average << endl;
+        cout << "Benefits:" << benefits << endl;
+        cout << "Manager: " << manager << endl;
+        
 
         data.Print();
 
@@ -39,19 +50,47 @@ struct Worker
 };
 
 void CreatWorker(Worker* w) {
-    string sn[6] = { "Bondarenko", "Chirkp", "Sheva", "Tkachenko", "Koval" };
-    string n[6] = { "Lexus", "Sanya", "Maks", "Boris", "Yurets" };
-    int name, lastName, birthday, avarage;
+    string manager[3] = { "Serhii Bigun", "Andrii Ryabuy", "Nechiporuk Maksum" };
+    string nameStudents[6] = { "Bondarenko", "Chirkp", "Sheva", "Tkachenko", "Koval" };
+    string lastNameSudents[6] = { "Lexus", "Sanya", "Maks", "Boris", "Yurets" };
+    int name, lastName, managerName;
+    managerName = rand() % 3;
     name = rand() % 5;
     lastName = rand() % 5;
-    w->FirstName = n[name];
-    w->LastName = sn[lastName];
-    w->dateBirthday = 22 + rand() % 39;
+    w->FirstName = nameStudents[name];
+    w->LastName = lastNameSudents[lastName];
+    w->manager = managerName[manager];
+    w->age = rand() % 17;
     w->average = rand() % 11;
+    w->benefits = rand() % 2;
+}
+
+void bestStudent() {
+    int bester = 0;
+    Worker* workers = new Worker[10];
+    for (int i = 0; i < 10; i++)
+    {
+        CreatWorker(&workers[i]);
+        workers[i].Print();
+        cout << endl;
+    }
+    cout << endl;
+    system("color 3"); cout << "The best student:";
+    for (int i = 0; i < 10; i++)
+    {
+        if (workers[i].average > workers[bester].average)
+        {
+            bester = i;
+        }
+        cout << endl;
+    }
+
+    workers[bester].Print();
+    
 }
 
 void olderStudents() {
-    srand(time(NULL));
+    
     int older = 0;
     Worker* workers = new Worker[10];
     for (int i = 0; i < 10; i++)
@@ -61,8 +100,8 @@ void olderStudents() {
         cout << endl;
     }
     cout << endl;
-
-    cout << "The old man: " << endl;
+        
+    system("color 1"); cout << "The old man: " << endl;
     for (int i = 0; i < 10; i++)
     {
         if (workers[i].dateBirthday > workers[older].dateBirthday)
@@ -75,7 +114,54 @@ void olderStudents() {
     workers[older].Print();
 }
 
+void avarageUp() {
+    int averageUpper = 0;
+    Worker* workers = new Worker[10];
+    for (int i = 0; i < 10; i++)
+    {
+        CreatWorker(&workers[i]);
+        workers[i].Print();
+        cout << endl;
+    }
+    cout << endl;
+    
+
+    for (int i = 0; i < 10; i++)
+    {
+        if (workers[averageUpper].average < 9 )
+        {
+            averageUpper++;
+        }
+       
+        cout << endl;
+    }
+
+    system("color 3"); cout << "Best student avarage:" << averageUpper<< endl;
+}
+
+void todayBirthday() {
+    int todayBirthday = 0;
+    Worker* workers = new Worker[10];
+    for (int i = 0; i < 10; i++)
+    {
+        CreatWorker(&workers[i]);
+        workers[i].Print();
+        cout << endl;
+    }
+    cout << endl;
+    for (int i = 0; i = todayBirthday; i++)
+    {
+        if (workers[i].dateBirthday)
+        {
+            todayBirthday++;
+        }
+    }
+    system("color 3"); cout << "Children born in one day:" << todayBirthday << endl;
+
+}
+
 void main() {
+    srand(time(NULL));
     
     int action = 0;
 
@@ -99,7 +185,7 @@ void main() {
         switch (action)
         {
         case 1: {
-
+            bestStudent();
         }break;
         case 2: {
 
@@ -114,31 +200,24 @@ void main() {
 
         }break;
         case 6: {
-
+            todayBirthday();
         }break;
         case 7: {
             olderStudents();
         }break;
         case 8: {
-
+            avarageUp();
         }break;
         case 9: {
 
         }break;
         case 10: {
+            cout << "Good Bye" << endl;
 
         }break;
 
         }
 
-       
-
-        
-
     } while (action != 9);
-    
-
-
-
 }
 
