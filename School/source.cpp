@@ -31,6 +31,7 @@ struct Worker
     bool benefits;
     int age;
     int dateBirthday;
+    string brosAndSist;
     Date data;
 
 
@@ -42,7 +43,8 @@ struct Worker
         cout << "Average:" << average << endl;
         cout << "Benefits:" << benefits << endl;
         cout << "Manager: " << manager << endl;
-        
+        cout << "Brosers and Sisters: " << brosAndSist << endl;
+
 
         data.Print();
 
@@ -63,6 +65,7 @@ void CreatWorker(Worker* w) {
     w->age = rand() % 17;
     w->average = rand() % 11;
     w->benefits = rand() % 2;
+    
 }
 
 void bestStudent() {
@@ -86,11 +89,11 @@ void bestStudent() {
     }
 
     workers[bester].Print();
-    
+
 }
 
 void olderStudents() {
-    
+
     int older = 0;
     Worker* workers = new Worker[10];
     for (int i = 0; i < 10; i++)
@@ -100,7 +103,7 @@ void olderStudents() {
         cout << endl;
     }
     cout << endl;
-        
+
     system("color 1"); cout << "The old man: " << endl;
     for (int i = 0; i < 10; i++)
     {
@@ -124,19 +127,19 @@ void avarageUp() {
         cout << endl;
     }
     cout << endl;
-    
+
 
     for (int i = 0; i < 10; i++)
     {
-        if (workers[averageUpper].average < 9 )
+        if (workers[averageUpper].average < 9)
         {
             averageUpper++;
         }
-       
+
         cout << endl;
     }
 
-    system("color 3"); cout << "Best student avarage:" << averageUpper<< endl;
+    system("color 3"); cout << "Best student avarage:" << averageUpper << endl;
 }
 
 void todayBirthday() {
@@ -160,9 +163,31 @@ void todayBirthday() {
 
 }
 
+void broserSister() {
+    int broserAndSister = 0;
+    Worker* workers = new Worker[10];
+    for (int i = 0; i < 10; i++)
+    {
+        CreatWorker(&workers[i]);
+        workers[i].Print();
+        cout << endl;
+    }
+    cout << endl;
+    for (int i = 0; i = broserAndSister; i++)
+    {
+        if (workers[i].LastName == workers[i].LastName)
+        {
+            broserAndSister++;
+            workers[i].Print();
+            cout << endl;
+        }
+    }
+    system("color 3"); cout << "Brothers and sisters: " << broserAndSister << endl;
+}
+
 void main() {
     srand(time(NULL));
-    
+
     int action = 0;
 
     do
@@ -177,7 +202,7 @@ void main() {
         cout << "7.Show the oldest student." << endl;
         cout << "8.How many students have an average score greater than 8.5?" << endl;
         cout << "9.In which class are the most privileged?" << endl;
-        cout << "10.Exit" << endl; 
+        cout << "10.Exit" << endl;
         cout << "==========================================================================" << endl;
         cout << endl;
         cout << "Enter action-->";
@@ -197,7 +222,7 @@ void main() {
 
         }break;
         case 5: {
-
+            broserSister();
         }break;
         case 6: {
             todayBirthday();
@@ -220,4 +245,3 @@ void main() {
 
     } while (action != 9);
 }
-
