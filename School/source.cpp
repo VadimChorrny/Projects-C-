@@ -4,6 +4,8 @@
 
 using namespace std;
 
+int countStudent = 10;
+
 struct Date
 {
     int day = rand() % 29;
@@ -23,50 +25,60 @@ struct Class
 
 struct Worker
 {
+    string group;
     string FirstName;
     string LastName;
     string manager;
+    string brosAndSist;
     double average;
     double ball;
     bool benefits;
     int age;
     int dateBirthday;
-    string brosAndSist;
+
     Date data;
+
+
 
 
     void Print()
     {
         cout << "First name:" << FirstName << endl;
         cout << "Last name:" << LastName << endl;
+        cout << "Groups: " << group << endl;
         cout << "Age:" << age << endl;
         cout << "Average:" << average << endl;
         cout << "Benefits:" << benefits << endl;
         cout << "Manager: " << manager << endl;
         cout << "Brosers and Sisters: " << brosAndSist << endl;
-
-
         data.Print();
-
     }
 };
+
+int avarageGroup = 0;
+int averageUpper = 0;
 
 void CreatWorker(Worker* w) {
     string manager[3] = { "Serhii Bigun", "Andrii Ryabuy", "Nechiporuk Maksum" };
     string nameStudents[6] = { "Bondarenko", "Chirkp", "Sheva", "Tkachenko", "Koval" };
     string lastNameSudents[6] = { "Lexus", "Sanya", "Maks", "Boris", "Yurets" };
-    int name, lastName, managerName;
-    managerName = rand() % 3;
+    string group[3] = {"BY022", "BY021", "FUTURE VG"};
+    int name,lastName,managerName,groupName,c,b, countGroup = 0;
     name = rand() % 5;
     lastName = rand() % 5;
+    managerName = rand() % 3;
+    groupName = rand() % 3;
     w->FirstName = nameStudents[name];
     w->LastName = lastNameSudents[lastName];
-    w->manager = managerName[manager];
     w->age = rand() % 17;
     w->average = rand() % 11;
     w->benefits = rand() % 2;
-    
+    w->manager = managerName[manager];
+    w->group = groupName[group];
 }
+
+
+
 
 void bestStudent() {
     int bester = 0;
@@ -118,7 +130,7 @@ void olderStudents() {
 }
 
 void avarageUp() {
-    int averageUpper = 0;
+
     Worker* workers = new Worker[10];
     for (int i = 0; i < 10; i++)
     {
@@ -134,6 +146,7 @@ void avarageUp() {
         if (workers[averageUpper].average < 9)
         {
             averageUpper++;
+
         }
 
         cout << endl;
@@ -163,27 +176,33 @@ void todayBirthday() {
 
 }
 
-void broserSister() {
-    int broserAndSister = 0;
-    Worker* workers = new Worker[10];
-    for (int i = 0; i < 10; i++)
+void bestTeacher() 
+{
+    Worker* teachers = new Worker[10];
+    cout << endl;
+    if (averageUpper > 1)
     {
-        CreatWorker(&workers[i]);
-        workers[i].Print();
+        cout << "Best teacher: " << teachers->manager << endl;
         cout << endl;
     }
-    cout << endl;
-    for (int i = 0; i = broserAndSister; i++)
-    {
-        if (workers[i].LastName == workers[i].LastName)
-        {
-            broserAndSister++;
-            workers[i].Print();
-            cout << endl;
-        }
+    
+    else if (averageUpper < 1) {
+        cout << "Bad teacher: " << teachers->manager << endl;
+        cout << endl;
     }
-    system("color 3"); cout << "Brothers and sisters: " << broserAndSister << endl;
+
+
 }
+
+void badGroup()
+{
+    Worker* group = new Worker;
+    if (true)
+    {
+
+    }
+}
+
 
 void main() {
     srand(time(NULL));
@@ -213,7 +232,7 @@ void main() {
             bestStudent();
         }break;
         case 2: {
-
+            bestTeacher();
         }break;
         case 3: {
 
@@ -222,7 +241,7 @@ void main() {
 
         }break;
         case 5: {
-            broserSister();
+
         }break;
         case 6: {
             todayBirthday();
