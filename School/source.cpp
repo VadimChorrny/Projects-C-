@@ -23,6 +23,9 @@ struct Class
 
 };
 
+int avarageGroup = 0;
+int averageUpper = 0;
+
 struct Worker
 {
     string group;
@@ -48,6 +51,7 @@ struct Worker
         cout << "Groups: " << group << endl;
         cout << "Age:" << age << endl;
         cout << "Average:" << average << endl;
+        cout << "Average groups:" << avarageGroup << endl;
         cout << "Benefits:" << benefits << endl;
         cout << "Manager: " << manager << endl;
         cout << "Brosers and Sisters: " << brosAndSist << endl;
@@ -55,8 +59,7 @@ struct Worker
     }
 };
 
-int avarageGroup = 0;
-int averageUpper = 0;
+
 
 void CreatWorker(Worker* w) {
     string manager[3] = { "Serhii Bigun", "Andrii Ryabuy", "Nechiporuk Maksum" };
@@ -68,6 +71,7 @@ void CreatWorker(Worker* w) {
     lastName = rand() % 5;
     managerName = rand() % 3;
     groupName = rand() % 3;
+    avarageGroup = rand() % 12;
     w->FirstName = nameStudents[name];
     w->LastName = lastNameSudents[lastName];
     w->age = rand() % 17;
@@ -196,13 +200,63 @@ void bestTeacher()
 
 void badGroup()
 {
-    Worker* group = new Worker;
-    if (true)
-    {
+    int indexGroupBad = 0;
 
+    Worker* workers = new Worker[10];
+    for (int i = 0; i < 10; i++)
+    {
+        CreatWorker(&workers[i]);
+        workers[i].Print();
+        cout << endl;
     }
+    cout << endl;
+
+
+    for (int i = 0; i < 10; i++)
+    {
+        if (workers[avarageGroup].average < 6)
+        {
+            
+            indexGroupBad++;
+            system("color 3"); cout << "Bad group:" << workers->group << "||" << avarageGroup << endl;
+        }
+
+        cout << endl;
+    }
+
+    
 }
 
+void benefitsGroup()
+{
+    int indexBenefits = 0;
+    Worker* workers = new Worker[10];
+    for (int i = 0; i < 10; i++)
+    {
+        CreatWorker(&workers[i]);
+        workers[i].Print();
+        cout << endl;
+    }
+    cout << endl;
+
+
+    for (int i = 0; i < 10; i++)
+    {
+        if (workers[indexBenefits].benefits == workers->benefits)
+        {
+            indexBenefits++;
+            cout << "Count benefits: " << workers[indexBenefits].benefits << workers->group << endl;
+        }
+        else 
+        {
+            cout << "Equally!!!" << endl;
+        }
+
+        cout << endl;
+    }
+
+
+}
 
 void main() {
     srand(time(NULL));
@@ -235,7 +289,7 @@ void main() {
             bestTeacher();
         }break;
         case 3: {
-
+            badGroup();
         }break;
         case 4: {
 
@@ -253,7 +307,7 @@ void main() {
             avarageUp();
         }break;
         case 9: {
-
+            benefitsGroup();
         }break;
         case 10: {
             cout << "Good Bye" << endl;
