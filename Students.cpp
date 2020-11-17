@@ -1,198 +1,149 @@
 #include <iostream>
-#include <iomanip>
 #include <string>
 
 using namespace std;
 
-class Person
+class Student
 {
+
+	static const size_t CURR_YEAR = 2020;
+	bool isLeap(size_t year)
+	{
+		return year % 4 == 0 && year % 100 != 0 || year % 400 == 0;
+	}
+
 public:
-
-	class Date
+	void setCountry(const string country_)
 	{
-		static const size_t CURR_YEAR = 2020;
-		bool isLeap(size_t year)
+		if (!country_.empty())
 		{
-			return year % 4 == 0 && year % 100 != 0 || year % 400 == 0;
+			country = country_;
 
 		}
-	public:
-
-		void setCountry(const string country_)
-		{
-			if (!country.empty())
-			{
-				nameUniversity = country_;
-
-			}
-			else {
-				cout << "ERROR" << endl;
-			}
+		else {
+			cout << "ERROR" << endl;
 		}
-
-		void setUniversity(const string university_)
-		{
-			if (!university_.empty())
-			{
-				nameUniversity = university_;
-				
-			}
-			else {
-				cout << "ERROR" << endl;
-			}
-		}
-		void setNumber(const string number_) {
-			if (number_ >- 1 && number_ <= 10) // NEED DEVELOPMENT
-			{
-				numb = number_;
-				
-			}
-			else {
-				cout << "error" << endl;
-			}
-		}
-		void setMonth( const size_t month_)
-		{
-			if (month_ >- 1 && month_ <= 12)
-			{
-				month = month_;
-			}
-		}
-		void setYear(const size_t year_)
-		{
-			if (year_ < CURR_YEAR - 18)
-			{
-
-			}
-		}
-		void setDay(size_t day_) {
-			size_t dayInMonth[]{ 31,28,31,30,31,30,31,30,31,30,31,30,31 };
-
-			if (day >= 1 && day <= dayInMonth[month - 1])
-			{
-				day = day_;
-			}
-			else if (month == 2 && day_ == 29 && isLeap(year)) {
-				day = day_;
-			}
-		}
-
-		void print()
-		{
-			cout << day << "/" << month << "/" << year << endl;
-		}
-
-
-
-		void input()
-		{
-			int counter;
-			do
-			{
-				cout << "Enter day: ";
-				cin >> day;
-				cout << "Enter month: ";
-				cin >> month;
-				cout << "Enter year: ";
-				cin >> year;
-				cout << "Enter number: ";
-				cin >> numb;
-				cout << "Enter name universe";
-				cin >> nameUniversity;
-				cout << "Enter country: ";
-				cin >> nameUniversity;
-			} while (true);
-		}
-
-	private:
-		size_t day, month, year = 2000;
-		string numb, country, nameUniversity;
-	};
-
-	int max_age = 122;
-
-	void input() {
-		cout << "Enter name: ";
-		cin >> name;
-		cout << "Enter username: ";
-		cin >> surname;
-		cout << "Enter age: ";
-		cin >> age;
-
 	}
 
-
-	void print()
+	const string& getCountry()
 	{
-		cout << "name: " << setw(10) << name << endl;
-		cout << "surname: " << setw(10) << surname << endl;
-		cout << "age: " << setw(10) << age << endl;
+		return country;
 	}
-	// accessors, getter & setter
-	void setName( const string &newName) // more effective
+
+	void setUniversity(const string university_)
 	{
-		if (!newName.empty())
+		if (!university_.empty())
 		{
-			name = newName;
+			nameUniversity = university_;
+
 		}
+		else {
+			cout << "ERROR" << endl;
+		}
+	}
+
+	const string& getUniversity() 
+	{
+		return nameUniversity;
+	}
+
+	void setNumber(const size_t number_) {
 		
-	}
-	const string & getName() // save code and effective
-	{
-		return name;
-	}
-	// SURNAME
-	void setSurname(const string& newSurname)
-	{
-		if (!newSurname.empty())
-		{
-			surname = newSurname;
+		const size_t MAX_NUMBER = 10;
+		if (number_ < MAX_NUMBER) {
+			numb = number_;
 		}
 	}
 
-	const string& getSurname()
+	const string& getNumber()
 	{
-		return surname;
+		return numb;
 	}
 
-	// AGE
-	void setAge(const int& newAge)
+	void setMonth(const size_t month_)
 	{
-		if (!newAge < 122)
+		if (month_ > -1 && month_ <= 12)
 		{
-			age = newAge;
+			month = month_;
 		}
-		else if (newAge < max_age) {
-			cout << "norm" << endl;
+	}
+
+	const size_t& getMonth()
+	{
+		return month;
+	}
+
+	void setYear(const size_t year_)
+	{
+		if (year_ < CURR_YEAR - 18)
+		{
+
+		}
+	}
+	
+	const size_t& getYear()
+	{
+		return year;
+	}
+
+	void setDay(size_t day_) {
+		size_t dayInMonth[]{ 31,28,31,30,31,30,31,30,31,30,31,30,31 };
+
+		if (day >= 1 && day <= dayInMonth[month - 1])
+		{
+			day = day_;
+		}
+		else if (month == 2 && day_ == 29 && isLeap(year)) {
+			day = day_;
 		}
 		else {
 			cout << "error" << endl;
 		}
-		
 	}
 
-	const int& getAge()
+	const size_t& getDay()
 	{
-		return age;
+		return day;
 	}
 
+	void print()
+	{
+		cout << day << "/" << month << "/" << year << endl;
+	}
 
-private: // incapsulation 
-	string name = "noname";
-	string surname = "nosurname";
-	size_t age = 0;
-	string numbers;
-	string city;
-	string country;
-
+	void inputStudent()
+	{
+			cout << "Enter day:\t";
+			cin >> day;
+			cout << "Enter month:\t";
+			cin >> month;
+			cout << "Enter year:\t";
+			cin >> year;
+			cout << "Enter number:\t";
+			cin >> numb;
+			cout << "Enter name universe:\t";
+			cin >> nameUniversity;
+			cout << "Enter country:\t";
+			cin >> country;
+	}
+private:
+	size_t day, month, year = 2000;
+	string numb, country, nameUniversity;
 };
 
-void main()
+int main()
 {
-	Person person; // { "Vova" ,"V.", 14}; // incapsulation
-	cout << "size:" << sizeof(person) << endl;
+	Student stud;
 	
-	
+	stud.inputStudent();
+	cout << "_________________________" << endl;
+	cout << "Day:\t" << stud.getDay() << endl;
+	cout << "Month:\t" << stud.getMonth() << endl;
+	cout << "Year:\t" << stud.getYear() << endl;
+	cout << "Number:\t" << stud.getNumber() << endl;
+	cout << "Name Univer:\t" << stud.getUniversity() << endl;
+	cout << "Country Univer:\t" << stud.getCountry() << endl;
+	stud.print();
 
-	//person.name
+	return 0;
 }
